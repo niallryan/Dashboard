@@ -1,29 +1,46 @@
 <!doctype html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="ACSSApp" ng-controller="MainCtrl" ng-cloak>
 <head>
   <meta charset="utf-8">
-  <title>My AngularJS App</title>
+  <title>Dashboard</title>
   <link rel="stylesheet" href="css/app.css"/>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
-
-  <div ng-view></div>
-
-  <div>Angular seed app: v<span app-version></span></div>
+  <h1 translate>TITLE</h1>
+  <menubar id="menu"></menubar>
+  <div class="container" ng-view></div>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
   -->
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular/angular-route.js"></script>
+  <!-- i18n -->
+  <script src="lib/angular-translate.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/directives.js"></script>
+
+  <!-- Keys and Tokens -->
+  <script src="js/keys.js"></script>
+
+  <!-- jQuery -->
+  <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+
+  <!-- Skycons Script for Weather Page -->
+  <script src="js/skycons.js"></script>
+
+  <!-- Soundcloud SDK for Music Page -->
+  <script src="http://connect.soundcloud.com/sdk.js"></script>
+  <script>
+      SC.initialize({
+          client_id: '75a95c45db569b958486b84c1be3754f'
+      });
+  </script>
+  <!-- Soundcloud Widget Script -->
+  <script src="https://w.soundcloud.com/player/api.js"></script>
+
 </body>
 </html>

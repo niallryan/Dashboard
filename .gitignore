@@ -3,3 +3,5 @@ logs/*
 node_modules/
 tmp
 .DS_Store
+
+app/js/keys.js

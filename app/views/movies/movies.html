@@ -1,0 +1,9 @@
+<h1>Movies</h1>
+<div ng-repeat="movie in movies">
+  <a href="movies/{{movie.id}}">{{movie.title}}</a>
+</div>
+                 
+<p>Page: {{page}}</p>
+<button ng-click="nextPage()" ng-hide="page == 11">More</button>
+<button ng-click="prevPage()" ng-show="page > 1">Back</button>
+<button ng-click="startOver()" ng-show="page > 1">Back to Page 1</button>
