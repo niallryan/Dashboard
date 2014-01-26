@@ -1,1 +1,9 @@
-<div todo></div>
+<div ng-init="model = { value: 'dsf'}">
+	<h1>To Do</h1>
+	<input ng-model="taskname" /> <button ng-click="addTask()">Add Task</button>
+	<h2>Tasks</h2>
+	<p ng-repeat="card in data.data.cards" draggable todo-item model="model" class="repeat-animation">
+		<span ng-class="selected">{{card.name}}</span>
+		<button ng-click="localFunction()">Important!</button>
+	</p>
+</div>

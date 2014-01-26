@@ -30,7 +30,7 @@ angular.module('ACSSApp.services', [])
           return $http.post("https://api.trello.com/1/lists/" + list + "/cards?key=" + keystore.trello.key + "&token=" + keystore.trello.token + "&name=" + name + "&due=null");
           },
         completeTask: function() {
-          // $(this).parent().hide();
+          //angular.element(this).css({display: "none"});
         }
       }
     })

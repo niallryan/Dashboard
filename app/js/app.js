@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ACSSApp', ['ngRoute', 'ACSSApp.services', 'ACSSApp.controllers', 'ACSSApp.directives', 'ACSSApp.filters', 'pascalprecht.translate', 'ACSSApp.keys'])
+angular.module('ACSSApp', ['ngRoute', 'ACSSApp.services', 'ACSSApp.controllers', 'ACSSApp.directives', 'ACSSApp.filters', 'pascalprecht.translate', 'ACSSApp.keys', 'ngAnimate', 'ACSSApp.animations'])
   .config(function ($routeProvider, $locationProvider, $httpProvider, $translateProvider) {
 
 

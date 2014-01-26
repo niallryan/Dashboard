@@ -5,39 +5,49 @@
 
 angular.module('ACSSApp.directives', [])
 
- 	// http://jsfiddle.net/niden/H7jnB/
-  .directive('menubar', function() {
-        return {
-            restrict: 'E',
-            replace: true,
-            link: function(scope, element, attrs) {
-              for (var i = element[0].children; i < element[0].children.length; i++) {
-                console.log(i);
-              }
+  .directive('menuButton', function() {
+    return function(scope, element, attr) {
+      element.css({
+        backgroundColor: "white", 
+        borderRadius: "5px",
+        color: "blue",
+        textDecoration: "none",
+        padding: ".5%",
+        border: "1px lightblue solid"
+      });
+      element.on("mouseover", function() {
+        element.css({backgroundColor: "lightblue"});
+      });
+      element.on("mouseout", function() {
+        element.css({backgroundColor: "white"});
+      });
+    }
+  })
 
-            },
-            template: '<menu>' + 
-                         '<span ng-repeat="item in menuItems">' + 
-                             '<a href="{{item.link}}">{{item.name}} | </a>' + 
-                         '</span>' + 
-                      '</menu>'
-        }
-    })
-  .directive('todo', function() {
-    return {
-            replace: true,
-            link: function(scope, element, attrs) {
+  .directive('todoItem', function() {
+    // return function (scope, element, attrs) {
+    //   $().on("click", function() {
+    //       alert($(this));
+    //       element.css({border: "2px solid red"});
+    //     }
+    //   );
+    // }
 
-            },
-            template: '<div>' + 
-                        '<h1>To Do</h1>' + 
-                        '<input ng-model="taskname" /> <button ng-click="addTask()">Add Task</button>' +
-                        '<h2>Tasks</h2>' + 
-                        '<p ng-repeat="card in data.data.cards" draggable>' +
-                          '<span>{{card.name}}</span><button ng-click="completeTask()">Complete</button>' +
-                        '</p>' +
-                      '</div>'
-        }
+    // http://stackoverflow.com/questions/17928487/angular-js-how-to-change-an-elements-css-class-on-click-and-to-remove-all-others
+    return function (scope, element, attrs) {
+      scope.localFunction = function () {
+        scope.model.value = scope.$id;
+      };
+        scope.$watch('model.value', function () {
+          // Is this set to my scope?
+          if (scope.model.value === scope.$id) {
+            scope.selected = "active";
+          // } else {
+          // // nope
+          //   scope.selected = '';
+          }
+      });
+    }
 
   })
   // http://docs.angularjs.org/guide/directive
@@ -85,7 +95,7 @@ angular.module('ACSSApp.directives', [])
             template: '<div>' + 
                         '<h1>News</h1>' +
                         '<ul>' +
-                          '<li ng-repeat="story in news"><a href="{{story.webUrl}}" target="_blank">{{story.webTitle}}</a></li>' +
+                          '<li ng-repeat="story in news" class="repeat-animation"><a href="{{story.webUrl}}" target="_blank">{{story.webTitle}}</a></li>' +
                         '</ul>' +
                       '</div>'
         };
@@ -123,7 +133,7 @@ angular.module('ACSSApp.directives', [])
                         '<h1>{{movieInfo.title}}</h1>' +
                         '<img ng-src="{{movieInfo.posters.profile}}" />' +
                         '<p>{{movieInfo.year}}</p>' +
-                        '<p>{{movieInfo.runtime}}</p>' +
+                        '<p>{{movieInfo.runtime}} mins</p>' +
                         '<p>{{movieInfo.synopsis}}</p>' +
                         '<p>{{movieInfo.critics_consensus}}</p>' +
                       '</div>'
@@ -144,7 +154,7 @@ angular.module('ACSSApp.directives', [])
                         '<input ng-model="query" />' +
                         '<button type="submit" ng-click="searchSC()">Search</button>' +
                         '<ul>' +
-                          '<li ng-repeat="track in tracks"><a ng-click="playTrack(this.track)">{{track.title}}</a></li>' +
+                          '<li ng-repeat="track in tracks" class="repeat-animation"><a ng-click="playTrack(this.track)">{{track.title}}</a></li>' +
                         '</ul>' +
                       '</div>'
 

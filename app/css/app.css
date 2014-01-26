@@ -1,67 +1,20 @@
 /* app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+.container {
+    width: 75%;
+    margin: auto;
+    padding-top: 2%;
 }
 
-.menu:before {
-  content: "[";
+.view-slide-animation {
+    margin-top: 7%;
 }
 
-.menu:after {
-  content: "]";
+.active {
+    border: 2px solid red;
 }
 
-.menu > li {
-  display: inline;
-}
-
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
-}
-
-.arrow {
-    cursor: pointer;
-    display: block;
-    height: 64px;
-    margin-top: -35px;
-    outline: medium none;
-    position: absolute;
-    top: 50%;
-    width: 64px;
-    z-index: 5;
-}
-
-.arrow.prev {
-    background-image: url("../images/prev.png");
-    left: 20px;
-    opacity: 0.2;
-    transition: all 0.2s linear 0s;
-}
-
-.arrow.next {
-    background-image: url("../images/next.png");
-    opacity: 0.2;
-    right: 20px;
-    transition: all 0.2s linear 0s;
-}
-
-.arrow.prev:hover{
-    opacity:1;
-}
-
-.arrow.next:hover{
-    opacity:1;
-}
+/* http://www.script-tutorials.com/photo-gallery-with-angularjs-and-css3/ */
 
 .nav {
     bottom: -4px;
